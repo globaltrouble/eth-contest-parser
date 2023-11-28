@@ -87,10 +87,11 @@ fn main() {
                     &parts
                 );
 
+                let count = parts.len() / 2;
+                
                 // sample just first value
-                // let count = parts.len() / 2;
-                let count = 1;
-                for eth_offset in 0..count {
+                // for eth_offset in 0..count {
+                for eth_offset in 0..1 {
                     let coef_offset = eth_offset + count;
 
                     let eth = parts[eth_offset].parse::<f32>().expect(&format!(

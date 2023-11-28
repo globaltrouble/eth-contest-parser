@@ -28,16 +28,19 @@ ls rawdata/ | grep '\.csv.gz' | time xargs -P 8 -I{} bash -c 'echo processing {}
 ls -lah joined/
 
 # output format are comma separated lines.
-#   0    (type: u64)        1 (type: f32, 1 eth for X usd)   2 (type: f32)
-# unix time in miliseconds, eth-usd convesrion rate, unknown coeficent
+#   0    (type: i64)                                         1 (type: i32, 1 eth for X usd cents)                           2 (type: i32)
+# unix time in microseconds (div by 1000000 to get seconds), eth-usd convesrion rate (cents, div by 100 to get dollars), unknown coeficent multiplied by 1000
 
 zcat joined/ETHUSDT-2023-01-11.csv.gz | head -n 5
 
 # output:
-# 1673434200000,1336.05,39.132
-# 1673434200000,1336.06,24.608
-# 1673434200000,1336.07,27.029
-# 1673434200000,1336.08,33.338
-# 1673434200000,1336.09,44.132
+# 1673434298908000,133605,39132
+# 1673434303910000,133605,107277
+# 1673434308910000,133605,112778
+# 1673434313912000,133605,152142
+# 1673434318915000,133605,112471
+# 1673434323919000,133605,52029
+# 1673434328924000,133605,94480
+# 1673434333926000,133605,31802
 
 ```
