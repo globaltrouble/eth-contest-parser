@@ -1,0 +1,25 @@
+[package]
+name = "parse-ethusd"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+log = "0.4.7"
+env_logger = "0.10.0"
+heapless = "0.8.0"
+
+
+[profile.release]
+opt-level = 3
+debug = false
+split-debuginfo = '...'  # Platform-specific.
+strip = false
+debug-assertions = false
+overflow-checks = false
+lto = 'fat'
+panic = 'abort'
+incremental = false
+codegen-units = 1
+rpath = false
